@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +10,12 @@ export class AppServiceService {
   readonly ROOT_URL;
 
   constructor(private http: HttpClient) {
-    
+    if(environment.production == false){
+      this.ROOT_URL = 'http://localhost:4401'
+    }else{
       this.ROOT_URL = 'http://localhost:8080'
     }
-  
+  }
 
   initializeDB(){
     return this.http.get('http://localhost:8080')
