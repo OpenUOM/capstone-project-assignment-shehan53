@@ -4,7 +4,7 @@ process.env.NODE_ENV = "test";
 fixture`Testing Teacher UI`
     .page`http://localhost:4401/`
 
-test('Testing search teachers', async t => {
+test('Testing search Teachers', async t => {
     await t.navigateTo("/");
     await t.typeText("#teacher-search", "su");
 
